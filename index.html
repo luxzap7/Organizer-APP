@@ -1,0 +1,90 @@
+<!--git add .- git commit -m "Opis promjena" - git push-->
+
+
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Organizacija Vremena</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="whiteboard-main">Glavni WHITEBOARD</div>
+    <div class="whiteboard-secondary">Sekundarni WHITEBOARD</div>
+    <div class="functional-space">PROSTOR ZA DODAVANJE FUNKCIONALNOSTI</div>
+    <div class="calendar">KALENDAR</div>
+    <div class="focus-function">Funkcija sata</div>
+
+    <!-- Account gumb  -->
+    <div class="account-segment" onclick="openAccountPopup()">
+      Account
+    </div>
+  </header>
+
+  <!-- Glavni prostor -->
+  <main class="main-container">
+    <section class="main-content">
+      <div id="boardsContainer"></div>
+    </section>
+  </main>
+  
+
+
+
+  <!-- Sign Up / Log In pop-up -->
+  <div class="account-popup-container" id="accountPopup" style="display: none;">
+    <div class="account-popup-content">
+      <span class="close-btn" onclick="closeAccountPopup()">&times;</span>
+
+      <!-- Sign Up forma -->
+      <div id="signupForm">
+        <h2>Registracija</h2>
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" name="signupEmail" required placeholder="Unesite email" />
+
+        <label for="signupPassword">Lozinka:</label>
+        <input type="password" id="signupPassword" name="signupPassword" required placeholder="Unesite lozinku" />
+
+        <button id="signupBtn" type="button">Sign Up</button>
+        <div class="switch-form-btn" onclick="showLoginForm()">Or Log In!</div>
+      </div>
+
+      <!-- Log In forma -->
+      <div id="loginForm" style="display: none;">
+        <h2>Prijava</h2>
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="loginEmail" required placeholder="Vaš email" />
+
+        <label for="loginPassword">Lozinka:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required placeholder="Vaša lozinka" />
+
+        <button id="loginBtn" type="button">Log In</button>
+        <div class="switch-form-btn" onclick="showSignupForm()">Or Sign Up</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- pop-up za "Log Out" -->
+  <div class="logout-popup-container" id="logoutPopup" style="display: none;">
+    <div class="logout-popup-content">
+      <span class="close-btn" onclick="closeLogoutPopup()">&times;</span>
+      <h2>Želite li se odjaviti?</h2>
+      <button id="logoutBtn" type="button">Log Out</button>
+    </div>
+  </div>
+
+  <!-- Skripte -->
+
+  <script src="script.js" ></script>
+  <script type="module" src="register.js" defer></script>
+  <script type="module" src="login.js" defer></script>
+  <script type="module" src="workspace.js" defer></script>
+
+</body>
+
+</html>

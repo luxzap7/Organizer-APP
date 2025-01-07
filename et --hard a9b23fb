@@ -1,0 +1,49 @@
+[33mcommit a9b23fb48421853c59b22167287039c81013a890[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: luxzap7 <93489900+luxzap7@users.noreply.github.com>
+Date:   Tue Jan 7 15:10:41 2025 +0100
+
+    7.1-Update v1
+
+[33mcommit 3cc36a6f8a097025e346cd1a3adcee8c6a9b0553[m
+Merge: c20f993 fcaf6a3
+Author: luxzap7 <93489900+luxzap7@users.noreply.github.com>
+Date:   Tue Jan 7 15:09:22 2025 +0100
+
+    Merge branch 'main' of https://github.com/luxzap7/Organizer-APP
+
+[33mcommit c20f9930cbf5a59facdde7e92b0ca3488598ff3a[m
+Author: luxzap7 <93489900+luxzap7@users.noreply.github.com>
+Date:   Tue Jan 7 15:08:20 2025 +0100
+
+    7.1-Update
+
+[33mcommit fcaf6a3fcec05076d295f2888f7b500724da475c[m
+Author: Matej Andračić <93489900+luxzap7@users.noreply.github.com>
+Date:   Tue Jan 7 14:24:03 2025 +0100
+
+    Update LICENSE
+
+[33mcommit fc4757e24517e061665fe70c3aadd3f3ee90a4b6[m
+Author: luxzap7 <93489900+luxzap7@users.noreply.github.com>
+Date:   Tue Jan 7 14:17:43 2025 +0100
+
+    7.1-Update
+
+[33mcommit f37af64f28aecc47791d5154100cb11bc66c90d2[m
+Merge: 9cfbc64 579625c
+Author: luxzap7 <93489900+luxzap7@users.noreply.github.com>
+Date:   Sun Jan 5 21:52:26 2025 +0100
+
+    Merge branch 'main' of https://github.com/luxzap7/Organizer-APP
+
+[33mcommit 9cfbc6431bfa1535a68511958306e95756b0745a[m
+Author: luxzap7 <93489900+luxzap7@users.noreply.github.com>
+Date:   Sun Jan 5 21:47:32 2025 +0100
+
+    Initial commit
+
+[33mcommit 579625c6f9f86f8bdeaaf32a9b7842978b701e58[m
+Author: Matej Andračić <93489900+luxzap7@users.noreply.github.com>
+Date:   Sun Jan 5 21:30:33 2025 +0100
+
+    Initial commit

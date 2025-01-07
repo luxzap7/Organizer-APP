@@ -1,0 +1,273 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Gornja traka */
+.header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 3fr 1fr 1fr 1fr;
+  align-items: center;
+  height: 80px;
+  background-color: #f0f0f0;
+  border-bottom: 2px solid #000;
+}
+
+.header > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Account gumb */
+.account-segment {
+  background-color: #a9d18e;
+  cursor: pointer;
+}
+
+
+.whiteboard-main {
+  background-color: #fff2cc;
+}
+.whiteboard-secondary {
+  background-color: #cfe2f3;
+}
+.functional-space {
+  background-color: #ffffff;
+}
+.calendar {
+  background-color: #ecd5f5;
+}
+.focus-function {
+  background-color: #fff2e5;
+  border-right: none;
+}
+
+.main-container {
+  border: 2px #000;
+  flex : 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.main-content {
+  border: 2px solid purple;
+  padding: 20px;
+  text-align: center;
+}
+.background-note {
+  font-style: italic;
+  color: #555;
+}
+
+/* Cards and Lists */
+
+#boardsContainer {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 30px;
+
+}
+
+.no-lists-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+}
+
+.create-list-box {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* "lista" */
+.board-list {
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  padding: 10px;
+  width: 250px;
+  margin-right: 20px; 
+  display: inline-block;
+  vertical-align: top;
+}
+.board-list h3 {
+  margin-top: 0;
+}
+.task-cards {
+  margin-top: 10px;
+}
+.close-list-btn {
+  float: right; 
+  cursor: pointer;
+  margin-left: 10px;
+  color: #666; 
+  font-weight: bold;
+}
+.close-list-btn:hover {
+  color: red; 
+}
+/* "task" */
+.card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  padding: 8px;
+  margin-bottom: 8px;
+}
+.add-task-button {
+  margin-top: 10px;
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+/* ===== Account POP-UP STILOVI ===== */
+.account-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.account-popup-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+
+.account-popup-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Za polja i gumbe */
+.account-popup-content label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.account-popup-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Gumbi za Sign Up / Log In */
+.account-popup-content button {
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}
+.account-popup-content button:hover {
+  background-color: #005999;
+}
+
+.switch-form-btn {
+  color: #007acc;
+  font-size: 0.9rem;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.account-segment.logged-in {
+  width: 40px;           
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;     
+  font-weight: bold;
+  background-color: #a9d18e;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+
+.account-segment.logged-in {
+  width: 40px;    
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;   
+  font-weight: bold;
+  background-color: #a9d18e;
+  border-radius: 4px; 
+  transition: all 0.3s ease;
+}
+
+.logout-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.logout-popup-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  position: relative;
+  text-align: center;
+}
+
+.logout-popup-content h2 {
+  margin-bottom: 20px;
+}
