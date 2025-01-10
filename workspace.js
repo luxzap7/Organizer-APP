@@ -1,23 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
-import {
-  getFirestore,
-  doc,
-  setDoc
-} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
-import 'dotenv/config';
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+import { auth, db } from "./firebaseInit.js";
+import { doc, setDoc } 
+  from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
 window.lists = [];
 
@@ -35,10 +18,9 @@ export function renderBoards() {
       </div>
     `;
     document.getElementById('createNewList').addEventListener('click', createNewList);
-  }
 
-  else {
-    window.lists.forEach((list, index) => {
+  } else {
+        window.lists.forEach((list, index) => {
       const tasksHtml = list.tasks.map((task, tIndex) => `
         <div class="card">
           ${task.title}
@@ -94,38 +76,26 @@ export function renderBoards() {
   }
 }
 
-//spremanje u firestore
 function saveListsToFirestore() {
   const user = auth.currentUser;
   if (!user) {
     console.warn("Nema logiranog korisnika, preskačem save.");
     return;
   }
-
   const userDocRef = doc(db, "users", user.uid);
-
   setDoc(userDocRef, { lists: window.lists })
-    .then(() => {
-      console.log("Spremanje u Firestore uspješno.");
-    })
-    .catch(err => {
-      console.error("Greška pri spremanju:", err);
-    });
+    .then(() => console.log("Spremanje u Firestore uspješno."))
+    .catch(err => console.error("Greška pri spremanju:", err));
 }
-
 
 function createNewList() {
   const listName = prompt("Naziv nove liste?");
   if (listName) {
-    window.lists.push({
-      name: listName,
-      tasks: []
-    });
+    window.lists.push({ name: listName, tasks: [] });
     renderBoards();
     saveListsToFirestore();
   }
 }
-
 
 function addTaskToList(listIndex) {
   const taskName = prompt("Naziv zadatka?");
@@ -153,5 +123,5 @@ function deleteTask(listIndex, taskIndex) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  renderBoards();
+  renderBoards(); // prikaže se odmah
 });

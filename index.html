@@ -29,9 +29,31 @@
   <main class="main-container">
     <section class="main-content">
       <div id="boardsContainer"></div>
+
+      <!-- Ikonica za promjenu pozadine, donji lijevi kut -->
+      <div class="background-picker-icon" onclick="openBackgroundPicker()">
+        <img src="images/iconGALLERY.png" alt="Promjena pozadine" />
+      </div>
+
+      <!-- Mali pop-up / modal za izbor 3 slike -->
+      <div class="background-picker-popup" id="bgPickerPopup">
+        <div class="bg-picker-content">
+          <span class="close-btn" onclick="closeBackgroundPicker()">×</span>
+          <h2>Odaberite pozadinu</h2>
+          <div class="bg-option" onclick="setBackground('images/background1.jpg')">
+            <img src="images/background1.jpg" alt="Pozadina 1" />
+          </div>
+          <div class="bg-option" onclick="setBackground('images/background2.jpg')">
+            <img src="images/background2.jpg" alt="Pozadina 2" />
+          </div>
+          <div class="bg-option" onclick="setBackground('images/background3.jpg')">
+            <img src="images/background3.jpg" alt="Pozadina 3" />
+          </div>          
+        </div>
+      </div>
     </section>
   </main>
-  
+
 
 
 
@@ -80,10 +102,11 @@
 
   <!-- Skripte -->
 
-  <script src="script.js" ></script>
+  <script src="script.js"></script>
+  <script type="module" src="firebaseInit.js" defer></script>
+  <script type="module" src="workspace.js" defer></script>
   <script type="module" src="register.js" defer></script>
   <script type="module" src="login.js" defer></script>
-  <script type="module" src="workspace.js" defer></script>
 
 </body>
 

@@ -1,3 +1,9 @@
+const savedBg = localStorage.getItem('userBgImage');
+if (savedBg) {
+  setBackground(savedBg);
+}
+
+
 function openAccountPopup() {
   const accountBtn = document.querySelector('.account-segment');
 
@@ -48,14 +54,41 @@ function closeLogoutPopup() {
 function setupLogoutListener() {
   const logoutBtn = document.getElementById('logoutBtn');
   logoutBtn.addEventListener('click', () => {
-
     closeLogoutPopup();
 
     const accountBtn = document.querySelector('.account-segment');
     accountBtn.classList.remove('logged-in');
     accountBtn.innerText = 'Account';
+
+    signOut(auth);
+
+    window.lists = [];
+    renderBoards();
   });
 }
+
+
+//Postavljanje pozadine
+function openBackgroundPicker() {
+  const popup = document.getElementById('bgPickerPopup');
+  popup.style.display = 'flex';
+}
+
+function closeBackgroundPicker() {
+  const popup = document.getElementById('bgPickerPopup');
+  popup.style.display = 'none';
+}
+
+function setBackground(imgPath) {
+  document.body.style.backgroundImage = `url('${imgPath}')`;
+  document.body.style.backgroundSize = 'cover';
+  document.body.style.backgroundPosition = 'center';
+  document.body.style.backgroundRepeat = 'no-repeat';
+  closeBackgroundPicker();
+  localStorage.setItem('userBgImage', imgPath);
+}
+
+
 
 window.addEventListener('DOMContentLoaded', () => {
   setupLogoutListener();
@@ -67,3 +100,6 @@ window.showSignupForm = showSignupForm;
 window.showLoginForm = showLoginForm;
 window.openLogoutPopup = openLogoutPopup;
 window.closeLogoutPopup = closeLogoutPopup;
+window.openBackgroundPicker = openBackgroundPicker;
+window.closeBackgroundPicker = closeBackgroundPicker;
+window.setBackground = setBackground;
