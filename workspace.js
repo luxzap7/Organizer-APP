@@ -1,5 +1,5 @@
 import { auth, db } from "./firebaseInit.js";
-import { doc, setDoc } 
+import { doc, setDoc }
   from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
 window.lists = [];
@@ -20,14 +20,14 @@ export function renderBoards() {
     document.getElementById('createNewList').addEventListener('click', createNewList);
 
   } else {
-        window.lists.forEach((list, index) => {
+    window.lists.forEach((list, index) => {
       const tasksHtml = list.tasks.map((task, tIndex) => `
         <div class="card">
           ${task.title}
           <span class="close-task-btn" 
                 data-listindex="${index}" 
                 data-taskindex="${tIndex}">
-            X
+            <img src="images/iconCLOSE.png" alt="Close list" />
           </span>
         </div>
       `).join('');
@@ -35,18 +35,30 @@ export function renderBoards() {
       // HTML za ovu listu
       const listHtml = `
         <div class="board-list" data-index="${index}" style="position: relative;">
-          <h3 style="margin: 0;">
+          <h3 style="position: relative;">
             ${list.name}
-            <span class="close-list-btn" data-listindex="${index}">X</span>
+            <span class="close-list-btn" data-listindex="${index}">
+              <img src="images/iconCLOSE.png" alt="Close list" />
+            </span>
           </h3>
+
           <div class="task-cards">
             ${tasksHtml}
           </div>
-          <button class="add-task-button">Dodaj zadatak</button>
+          <button class="add-task-button"><img src="images/iconADD.png" alt="Add task" /> Dodaj zadatak</button>
         </div>
       `;
       boardsContainer.innerHTML += listHtml;
     });
+
+    boardsContainer.innerHTML += `
+      <div class="board-list new-list-board">
+        <button id="createNewList" class="create-list-again-button">
+          + Kreiraj novu listu
+        </button>
+      </div>
+    `;
+    document.getElementById('createNewList').addEventListener('click', createNewList);
 
     const addTaskButtons = boardsContainer.querySelectorAll('.add-task-button');
     addTaskButtons.forEach((btn) => {
